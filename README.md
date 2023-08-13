@@ -1,4 +1,4 @@
-# <div align="center">🎈 BridgeLottery Exemple on Mode Bridge 🟢</div>
+# <div align="center">🎈 BridgeLottery Example on Mode Bridge 🟢</div>
 
 ```
 888888b.           d8b      888                   888              888    888                             

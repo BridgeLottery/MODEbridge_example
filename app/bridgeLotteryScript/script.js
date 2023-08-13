@@ -41,6 +41,7 @@ let subscriptionDurationInSeconds = 100;
 
 let contractForFront = '0';
 let index = 0;
+let addressEligible = 0;
 
 //FOR FRONT
 const app = express();
@@ -84,6 +85,7 @@ async function sendTransaction(txObject) {
     let signedTx = await web3.eth.accounts.signTransaction(txObject, config.privateKey);
     let receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
     console.log("Transaction Receipt:", receipt);
+    addressEligible++;
 }
 
 async function main() {
@@ -285,7 +287,7 @@ async function sendNft(winner) {
 //FOR FRONT
 app.get('/getInfos', (req, res) => {
     try {
-        res.json({ subscriptionDurationInSeconds, winner, contractForFront, index });
+        res.json({ subscriptionDurationInSeconds, winner, contractForFront, addressEligible });
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch variable value' });
     }
